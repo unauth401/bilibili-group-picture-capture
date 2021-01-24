@@ -1,3 +1,4 @@
+#coding=UTF-8
 import requests
 import os
 import json
@@ -151,7 +152,7 @@ def get_group_status():
         print("Getting sessions error. Please check your environment.")
         exit(0)
 
-    session_list = json.loads(r.text)['data']['session_list']
+    session_list = json.loads(r.content.decode('utf-8'))['data']['session_list']
 
     for element in session_list:
         end_seqno = element['last_msg']['msg_seqno']
